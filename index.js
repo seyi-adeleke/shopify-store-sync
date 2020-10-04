@@ -5,6 +5,7 @@ require('dotenv').config();
 const Shopify = require('./lib/shopify');
 const emitter = require('./lib/Events');
 
+const port = parseInt(process.env.PORT, 10) || 3000;
 
 const app = express();
 const middlewares = [bodyParser.urlencoded({ extended: true }), bodyParser.json()];
@@ -68,6 +69,6 @@ app.post('/4/update-product', async (req, res) => {
 });
 
 
-const listener = app.listen(3000, function() {
-  console.log('Your app is listening on port ' + 3000);
+const listener = app.listen(port, function() {
+  console.log('Your app is listening on port ' + port);
 });
